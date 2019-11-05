@@ -10,7 +10,7 @@ cd checkBam
 gcc -Wall -O3 -o checkBam checkBam.c
 
 # RUN
-./checkBam <bamfile>
+./checkBam \<bamfile\>
 
 This will print FAIL if bam file is truncated (EOF 30 byte marker is not present).
 Otherwise, it will print PASS
