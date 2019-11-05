@@ -3,6 +3,7 @@ Check for truncated bam files
 
 # get
 git clone https://github.com/7PintsOfCherryGarcia/checkBam.git
+
 cd checkBam
 
 # INSTALL
