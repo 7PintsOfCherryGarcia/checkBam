@@ -23,7 +23,11 @@ int main(int argc, char *argv[]) {
         exit(-1);
     }
     fseek(bamfile, -30, SEEK_END);
-    fread(file_bytestream, sizeof(char), 30,bamfile);
+    int read = fread(file_bytestream, sizeof(char), 30,bamfile);
+    if (read != 30) {
+        fprintf(stderr, "Error: Filed to read from file.\n");
+        exit(-1);
+    }
     for (int i = 0; i < 30; i++) {
         if (file_bytestream[i] != MAGIC[i]) {
             fprintf(stdout,"FAIL\n");
