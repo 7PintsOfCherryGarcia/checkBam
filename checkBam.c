@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     fread(file_bytestream, sizeof(char), 30,bamfile);
     for (int i = 0; i < 30; i++) {
         if (file_bytestream[i] != MAGIC[i]) {
-            fprintf(stderr,"FAIL\n");
+            fprintf(stdout,"FAIL\n");
             fclose(bamfile);
             free(file_bytestream);
             exit(-1);
