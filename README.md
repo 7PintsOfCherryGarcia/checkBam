@@ -1,7 +1,7 @@
 # checkBam
 Check for truncated bam files
 
-# get
+# GET
 git clone https://github.com/7PintsOfCherryGarcia/checkBam.git
 
 cd checkBam
@@ -15,3 +15,12 @@ gcc -Wall -O3 -o checkBam checkBam.c
 This will print FAIL if bam file is truncated (EOF 30 byte marker is not present).
 Otherwise, it will print PASS
 
+checkBam loads the LAST 30 bytes of a given file and compares them to the following EOF signature:
+
+{0, 0, 31, -117, 8, 4, 0, 0, 0, 0, 0, -1, 6, 0, 66, 67, 2, 0, 27, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+If any of the bytes do not match, the file is considered to be truncated.
+
+# WARNING
+
+A bam file may be corrupted and still have a correct EOF marker. checkBam does not detect any other types of corruption. 
